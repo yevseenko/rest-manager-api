@@ -25,10 +25,15 @@ connection.connect(function (err) {
     return;
   }
 
-  console.log('connected as id ' + connection.threadId);
+  console.log('Сonnected as id ' + connection.threadId);
 });
 
-connection.query('SELECT * from *', function (_error, results, fields) {
+connection.query('SELECT * from persons', function (_error, results, fields) {
+
   console.log(results);
-  console.log(fields);
-})
+
+  connection.end(function(err) {
+    if (err) console.log(err);
+  });
+
+});
