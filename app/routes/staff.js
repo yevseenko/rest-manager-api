@@ -7,19 +7,19 @@ export default function (app, db) {
   });
 
   app.post('/staff', (req, res) => {
-    //let sql = `INSERT INTO tables (title, cost) VALUES ('${req.body.title}', ${req.body.cost})`;
-    //db.query(sql, function (err) {
-      //if (err) throw err;
-      res.send('Done.');
-    //});
+    let sql = `INSERT INTO staff (name, lastName, age) VALUES ('${req.body.name}', '${req.body.lastName}', ${req.body.age})`;
+    db.query(sql, function (err) {
+      if (err) throw err;
+      res.send('Done with ' + req.body);
+    });
   });
 
-  app.put('/staff', (req, res) => {
+  app.put('/staff/:id', (req, res) => {
     console.log(req + res);
     res.send('Done.');
   });
 
-  app.delete('/staff', (req, res) => {
+  app.delete('/staff/:id', (req, res) => {
     console.log(req + res);
     res.send('Done.')
   });
