@@ -1,0 +1,15 @@
+{
+  "user": {
+    "dbConfig": {
+      "host": "eu-cdbr-west-02.cleardb.net",
+      "database":"heroku_831869270943f5e",
+      "user":"bf334996da4052",
+      "password":"f955ea08",
+      "connectionLimit" : 32767
+    }
+  },
+  "server": {
+    "host": "localhost",
+    "port": 8000
+  }
+}

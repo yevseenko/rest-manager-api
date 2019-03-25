@@ -1,4 +1,6 @@
-export default function (app, db) {
+import db from '../../db';
+
+export default function (app) {
   app.get('/menu', (req, res) => {
     db.query('SELECT * FROM menu', function (err, result) {
       if (err) throw err;

@@ -1,16 +1,16 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import routes from './app/routes';
-import db from './db'
+import config from 'config';
 
-const port = 8000;
 const app = express();
 
 app.use(bodyParser.urlencoded({
   extended: true
 }));
 
-app.listen(port, () => {
-  routes(app, db);
-  console.log('We are live on ' + port);
+routes(app);
+
+app.listen(config.server.port, config.server.host, function () {
+  console.log(`We are live on ${config.server.host}:${config.server.port}`);
 });
