@@ -1,5 +1,6 @@
 import config from 'config';
 import mysql from 'mysql';
+import util from 'util';
 
 const dbConfig = config.get('user.dbConfig');
 const pool = mysql.createPool(dbConfig);
@@ -19,5 +20,7 @@ pool.getConnection((err, connection) => {
   if (connection) connection.release();
   return;
 });
+
+pool.query = util.promisify(pool.query);
 
 export default pool;
