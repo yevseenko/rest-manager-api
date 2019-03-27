@@ -9,6 +9,8 @@ app.use(bodyParser.urlencoded({
   extended: true
 }));
 
+app.use(bodyParser.json());
+
 app.use(router);
 
 app.listen(config.server.port, config.server.host, function () {
