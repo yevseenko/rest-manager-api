@@ -9,11 +9,14 @@ function back() {
   return 'Hello, im async func';
 }
 
-function staffList (req, res) {
-  console.log('staffList entered');
-  const result = basic.getStaffList();
-  console.log(result)
+async function staffList (req, res) {
+  const result = await basic.getStaffList();
+  res.json(result);
+}
+
+async function editStaffList (req, res) {
+  const result = await basic.addItemToList(req);
   res.send(result);
 }
 
-export default {hello, staffList};
+export default {hello, staffList, editStaffList};
