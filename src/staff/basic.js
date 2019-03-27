@@ -11,11 +11,10 @@ function getStaffList() {
 
 function addItemToList(req) {
   try {
-    const query = db.query(
+    const result = db.query(
       'INSERT INTO staff (name, lastName, age) VALUES (?, ?, ?)',
       [req.body.name, req.body.lastName, req.body.age]
       );
-    console.log('query active');
     return 'Done';
   } catch (err) {
     if (err) throw new Error(err);
