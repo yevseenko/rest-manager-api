@@ -2,7 +2,7 @@ import basic from './basic';
 
 async function hello(req, res) {
   const result = await back(); 
-  res.json(result);
+  res.send(result);
 }
 
 function back() {
@@ -17,4 +17,3 @@ function staffList (req, res) {
 }
 
 export default {hello, staffList};
-
